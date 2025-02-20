@@ -129,3 +129,4 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.jsonconfig/strapi-service-account.json
+config/strapi-service-account.json
