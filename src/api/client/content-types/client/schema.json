@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Third_Party",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company_name": {
+      "type": "string",
+      "default": "company_name",
+      "required": true
+    },
+    "contact_person_name": {
+      "type": "string",
+      "required": true,
+      "default": "contact_person_name"
+    },
+    "phone": {
+      "type": "string",
+      "unique": true,
+      "default": "phone"
+    },
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "billing_address": {
+      "type": "text",
+      "default": "billing_address",
+      "required": true
+    },
+    "shipping_address": {
+      "displayName": "direccion_de_envio",
+      "type": "component",
+      "repeatable": false,
+      "component": "clientes.direccion-de-envio"
+    },
+    "vendedor_asignado": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user"
+    },
+    "stage": {
+      "type": "enumeration",
+      "enum": [
+        "pendiente",
+        "validado"
+      ],
+      "default": "pendiente"
+    },
+    "enlace_de_form": {
+      "type": "string"
+    },
+    "register": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "identify": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

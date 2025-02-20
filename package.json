@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "insta-shop-project",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -7,17 +7,22 @@
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "PORT=8080 strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
+    "@google-cloud/storage": "^7.15.0",
     "@strapi/plugin-cloud": "5.8.1",
+    "@strapi/plugin-documentation": "^5.9.0",
     "@strapi/plugin-users-permissions": "5.8.1",
     "@strapi/strapi": "5.8.1",
+    "@strapi/types": "^5.9.0",
     "better-sqlite3": "11.3.0",
+    "pg": "^8.13.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-provider-upload-google-cloud-storage": "^3.6.8",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {

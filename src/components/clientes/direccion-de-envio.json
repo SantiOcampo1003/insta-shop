@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_clientes_direccion_de_envios",
+  "info": {
+    "displayName": "direccion_de_envio",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "job_title": {
+      "type": "string",
+      "required": true,
+      "default": "job_title"
+    },
+    "address": {
+      "type": "string",
+      "required": true,
+      "default": "address"
+    },
+    "phone_number": {
+      "type": "string",
+      "required": true,
+      "default": "phone_number"
+    },
+    "locker_number": {
+      "type": "string",
+      "required": true,
+      "default": "locker_number"
+    }
+  }
+}
