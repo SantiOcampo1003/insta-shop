@@ -8,7 +8,7 @@ export default [
       enabled: true,
       origin: [
         "https://dev-frontend-book-app-878493143549.us-central1.run.app",
-        "http://dev-frontend-book-app-878493143549.us-central1.run.app",
+        "httpx://dev-frontend-book-app-878493143549.us-central1.run.app",
         "http://localhost:3000",
         "http://localhost:1337",
         "http://localhost:8080"
