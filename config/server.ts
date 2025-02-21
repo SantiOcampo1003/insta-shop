@@ -6,21 +6,8 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
-  url: env('PUBLIC_URL'),
+  url: env('PUBLIC_URL', 'https://strapi-app-878493143549.us-central1.run.app'),
   webhooks: {
     enabled: true,
-  },
-  settings: {
-    cors: {
-      enabled: true,
-      origin: [
-        "https://dev-frontend-book-app-878493143549.us-central1.run.app",
-        "http://localhost:3000",
-        "http://localhost:1337",
-        "http://localhost:8080"
-      ],
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-      headers: '*',
-    },
   },
 });
