@@ -8,14 +8,15 @@ export default [
       enabled: true,
       origin: [
         "https://dev-frontend-book-app-878493143549.us-central1.run.app",
-        "httpx://dev-frontend-book-app-878493143549.us-central1.run.app",
+        "http://dev-frontend-book-app-878493143549.us-central1.run.app",
         "http://localhost:3000",
         "http://localhost:1337",
-        "http://localhost:8080"
+        "http://localhost:8080",
+        "https://strapi-app-878493143549.us-central1.run.app",
       ],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-      credentials: true, // Permitir cookies y autenticación
+      credentials: true, 
     },
   },
   'strapi::poweredBy',

@@ -60,26 +60,20 @@
       "type": "string"
     },
     "register": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true,
+      "type": "text",
+      "required": true,
+      "default": "register"
+    },
+    "identity": {
+      "type": "text",
+      "default": "identity",
       "required": true
     },
-    "identify": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+    "sucursals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sucursal.sucursal",
+      "mappedBy": "third_party"
     }
   }
 }

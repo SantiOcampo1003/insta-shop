@@ -395,11 +395,9 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     email: Schema.Attribute.Email & Schema.Attribute.Unique;
     enlace_de_form: Schema.Attribute.String;
-    identify: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required;
+    identity: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'identity'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -410,17 +408,16 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<'phone'>;
     publishedAt: Schema.Attribute.DateTime;
-    register: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required;
+    register: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'register'>;
     shipping_address: Schema.Attribute.Component<
       'clientes.direccion-de-envio',
       false
     >;
     stage: Schema.Attribute.Enumeration<['pendiente', 'validado']> &
       Schema.Attribute.DefaultTo<'pendiente'>;
+    sucursals: Schema.Attribute.Relation<'oneToMany', 'api::sucursal.sucursal'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -428,6 +425,38 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+  };
+}
+
+export interface ApiSucursalSucursal extends Struct.CollectionTypeSchema {
+  collectionName: 'sucursals';
+  info: {
+    description: '';
+    displayName: 'branch';
+    pluralName: 'sucursals';
+    singularName: 'sucursal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    country: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sucursal.sucursal'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    shop_name: Schema.Attribute.String;
+    third_party: Schema.Attribute.Relation<'manyToOne', 'api::client.client'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -942,6 +971,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::client.client': ApiClientClient;
+      'api::sucursal.sucursal': ApiSucursalSucursal;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

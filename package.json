@@ -13,7 +13,7 @@
   "dependencies": {
     "@google-cloud/storage": "^7.15.0",
     "@strapi/plugin-cloud": "5.8.1",
-    "@strapi/plugin-documentation": "^5.9.0",
+    "@strapi/plugin-documentation": "^5.10.3",
     "@strapi/plugin-users-permissions": "5.8.1",
     "@strapi/strapi": "5.8.1",
     "@strapi/types": "^5.9.0",

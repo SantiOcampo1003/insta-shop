@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sucursals",
+  "info": {
+    "singularName": "sucursal",
+    "pluralName": "sucursals",
+    "displayName": "branch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shop_name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "third_party": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "sucursals"
+    }
+  }
+}

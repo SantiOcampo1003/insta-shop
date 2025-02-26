@@ -6,7 +6,7 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
-  url: env('PUBLIC_URL', 'https://strapi-app-878493143549.us-central1.run.app'),
+  url: env('PUBLIC_URL', 'http://localhost:8080'),
   webhooks: {
     enabled: true,
   },
